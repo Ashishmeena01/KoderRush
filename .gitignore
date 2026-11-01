@@ -1,0 +1,7 @@
+.env
+**/.env
+token.txt
+**/token.txt
+node_modules/
+**/node_modules/
+.git-nested-backup/
