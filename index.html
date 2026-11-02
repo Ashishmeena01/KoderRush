@@ -729,3 +729,20 @@
         tabContents.forEach(c => c.classList.remove('active'));
 
         trigger.classList.add('active');
+        document.getElementById(targetId)?.classList.add('active');
+      });
+    });
+
+    // Theme Switcher (Dark / Light)
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+    let isDark = true;
+
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        themeIcon.innerHTML = `
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2"/>
+          <path d="M12 20v2"/>
