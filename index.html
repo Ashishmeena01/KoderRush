@@ -712,3 +712,20 @@
       <div style="display: flex; gap: 1rem;">
         <a href="https://caddyserver.com/docs" target="_blank" rel="noopener">Documentation</a>
         <a href="https://github.com/caddyserver/caddy" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Tab Switching Logic (shadcn Tabs replica)
+    const tabTriggers = document.querySelectorAll('.tabs-trigger');
+    const tabContents = document.querySelectorAll('.tabs-content');
+
+    tabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const targetId = trigger.getAttribute('data-tab');
+        
+        tabTriggers.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        trigger.classList.add('active');
