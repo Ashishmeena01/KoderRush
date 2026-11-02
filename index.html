@@ -627,3 +627,20 @@
       </div>
     </div>
 
+    <!-- Tab 2: Diagnostics -->
+    <div class="tabs-content" id="tab-diagnostics">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Health Check & Inbound Probe</div>
+          <div class="card-description">Send an in-browser request or copy the CLI curl command.</div>
+        </div>
+        <div class="card-content" style="display: flex; flex-direction: column; gap: 1rem;">
+          
+          <div class="code-box">
+            <span id="curlCommand">curl -i http://localhost/api/health</span>
+            <button class="btn btn-outline btn-sm" id="copyBtn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span id="copyText">Copy</span>
