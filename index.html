@@ -151,3 +151,20 @@
       cursor: pointer;
       text-decoration: none;
       font-family: inherit;
+      outline: none;
+    }
+
+    .btn:focus-visible {
+      box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+    }
+
+    .btn-default {
+      background-color: hsl(var(--primary));
+      color: hsl(var(--primary-foreground));
+      border: 1px solid transparent;
+    }
+
+    .btn-default:hover {
+      opacity: 0.88;
+    }
+
