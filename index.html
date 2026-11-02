@@ -678,3 +678,20 @@
     <div class="tabs-content" id="tab-config">
       <div class="card">
         <div class="card-header">
+          <div class="card-title">Active Directive Configuration</div>
+          <div class="card-description">Live rule mappings parsed from Caddyfile.</div>
+        </div>
+        <div class="card-content">
+          <pre class="code-box" style="white-space: pre; display: block; overflow-x: auto; line-height: 1.6;">:80 {
+    handle /api/* {
+        reverse_proxy localhost:3000
+    }
+
+    handle {
+        root * /usr/share/caddy
+        file_server
+    }
+
+    handle /req/* {
+        root 
+    }
