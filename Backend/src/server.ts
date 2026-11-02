@@ -85,9 +85,9 @@ const startServer = async () => {
 
     app.listen(PORT, () => {
       console.log(`===============================================`);
-      console.log(`🚀 HostelHub API Server is active on port: ${PORT}`);
-      console.log(`🔗 Health Check: http://localhost:${PORT}/api/health`);
-      console.log(`🛡️  Security: Helmet, Rate Limiter & RBAC Active`);
+      console.log(`~~~--~~~ HostelHub API Server is active on port: ${PORT}`);
+      console.log(`~~~--~~~ Health Check: http://localhost:${PORT}/api/health`);
+      console.log(`~~~--~~~ Security: Helmet, Rate Limiter & RBAC Active`);
       console.log(`===============================================`);
     });
   } catch (error: any) {

@@ -1,0 +1,34 @@
+# Caddy Configuration for Docker Reverse Proxy Gateway
+# Accessible at http://localhost:9090 and http://localhost:80
+
+:9090, :80 {
+    # 1. API Reverse Proxy -> Backend API
+    # In Docker Desktop (Windows/Mac), host.docker.internal connects to the host machine.
+    # If running directly on host, replace with: reverse_proxy localhost:5000
+    # If on same Docker network, replace with: reverse_proxy hostelhub-backend:5000
+    handle /api/* {
+        reverse_proxy host.docker.internal:5000
+    }
+
+    # 2. Frontend Proxy -> http://localhost:9090/ft
+    # Redirect /ft to /ft/ so relative routes and assets resolve correctly
+    redir /ft /ft/
+
+    # Forward /ft/* to Frontend service, stripping /ft prefix for the upstream SPA
+    # If running directly on host, replace with: reverse_proxy localhost:3000 (or localhost:5173 for Vite dev)
+    # If on same Docker network, replace with: reverse_proxy hostelhub-frontend:80
+    handle_path /ft/* {
+        reverse_proxy host.docker.internal:3000
+    }
+
+    # Frontend SPA assets fallback (for Vite / React chunks requested at /assets/*)
+    handle /assets/* {
+        reverse_proxy host.docker.internal:3000
+    }
+
+    # 3. Default Handler: Serve static landing page (index.html)
+    handle {
+        root * /usr/share/caddy
+        file_server
+    }
+}
