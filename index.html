@@ -797,3 +797,20 @@
 
         terminalOut.style.display = 'block';
         terminalOut.innerText = `HTTP/1.1 ${res.status} ${res.statusText}\nLatency: ${latency}ms\n\n${body || '(empty response)'}`;
+      } catch (err) {
+        terminalOut.style.display = 'block';
+        terminalOut.innerText = `Connection failed: ${err.message}\nEnsure backend server is running on localhost:3000`;
+      } finally {
+        probeBtn.disabled = false;
+        probeBtn.innerHTML = `
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+          Ping /api/health
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
+
