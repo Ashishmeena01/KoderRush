@@ -389,3 +389,20 @@
     .hero-subtitle {
       font-size: 0.9375rem;
       color: hsl(var(--muted-foreground));
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .kv-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+    }
+
