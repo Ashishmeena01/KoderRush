@@ -763,3 +763,20 @@
 
     // Copy Command to Clipboard
     const copyBtn = document.getElementById('copyBtn');
+    const copyText = document.getElementById('copyText');
+    const curlCommand = document.getElementById('curlCommand');
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(curlCommand.innerText.trim()).then(() => {
+        copyText.innerText = 'Copied!';
+        setTimeout(() => {
+          copyText.innerText = 'Copy';
+        }, 2000);
+      });
+    });
+
+    // Health Endpoint Probe
+    const probeBtn = document.getElementById('probeBtn');
+    const terminalOut = document.getElementById('terminalOut');
+
+    probeBtn.addEventListener('click', async () => {
